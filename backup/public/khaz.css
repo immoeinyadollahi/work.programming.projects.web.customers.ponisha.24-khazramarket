@@ -1,0 +1,14 @@
+header.main-header .logo-area img {
+    width: 100%;
+    height: 40px;
+}
+
+.footer-social ul li a{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    
+}
+footer.main-footer .socials .footer-social ul li a:hover path{
+    fill: red !important;
+}

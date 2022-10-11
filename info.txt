@@ -1,0 +1,19 @@
+ftp.khazramarket.ir
+
+
+217.144.104.116
+
+khazrama
+
+48aAAW2$
+
+port 21
+
+
+
+cpanel 
+http://khazramarket.ir:2082/
+
+khazrama
+
+48aAAW2$

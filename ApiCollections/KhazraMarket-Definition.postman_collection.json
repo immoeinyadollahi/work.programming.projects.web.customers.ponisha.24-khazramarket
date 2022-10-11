@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "c07d6be1-5d96-41a3-8328-73d38d818c4a",
+		"name": "KhazraMarket-Definition",
+		"description": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23535741"
+	},
+	"item": [
+		{
+			"name": "Checkout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name\",\r\n    \"mobile\": \"mobile\",\r\n    \"gateway\": \"gateway key name\",\r\n    \"description\": \"description\",\r\n    // ----------------------------\r\n    // add these only if cart has any physical product otherwise ignore\r\n    \"province_id\": \"province_id\",\r\n    \"city_id\": \"city_id\",\r\n    \"postal_code\": \"postal_code\",\r\n    \"address\": \"address\",\r\n    \"carrier_id\": \"carrier_id\",\r\n    // ----------------------------\r\n    // payment gateway callback url\r\n    \"callback_url\": \"callback_url\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/api/v1/checkout",
+					"path": [
+						"api",
+						"v1",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductReviews",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/products/{product_id}/reviews",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"{product_id}",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewProductReview",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // required\r\n    \"title\": \"title\",\r\n    \"body\": \"body\",\r\n    \"rating\": \"rating 1|2|3|4|5\",\r\n    // ----------------------------\r\n    // add these only if user purchased the product \"required\"\r\n    \"suggest\": \"is suggested yes|no|not_sure\",\r\n    // ----------------------------\r\n    // optional\r\n    \"advantages\":[\"advantage text\"], // list of advantages\r\n    \"disadvantages\":[\"disadvantage text\"] // list of disadvantages\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/api/v1/products/{product_id}/reviews",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"{product_id}",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LikeOrDislikeReview",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"type like|dislike\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/api/v1/reviews/{review_id}/engage",
+					"path": [
+						"api",
+						"v1",
+						"reviews",
+						"{review_id}",
+						"engage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductComments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/products/{product_id}/comments",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"{product_id}",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewProductComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // required\r\n    \"body\":\"body\",\r\n    // reply to another comment in same product \"optional\"\r\n    \"comment_id\":\"reply_to\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/api/v1/products/{product_id}/comments",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"{product_id}",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateways",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/gateways",
+					"path": [
+						"api",
+						"v1",
+						"gateways"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckoutLink",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|OpaJ44S7S4Xhy3S97rn5LAsm5WBCiXZB30PWB5sd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/checkout/link",
+					"path": [
+						"api",
+						"v1",
+						"checkout",
+						"link"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CartDeleteItem",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/cart/{price_id}",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"{price_id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CategoryProducts",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/categories/{category_id}/products",
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"{category_id}",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "/api/v1/categories",
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
